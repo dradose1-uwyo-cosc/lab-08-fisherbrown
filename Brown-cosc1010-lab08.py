@@ -1,7 +1,7 @@
-# Your Name Here
+# Fisher Brown
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
+# 5 Nov 24
+# Lab 08
 # Lab Section:
 # Sources, people worked with, help given to:
 # your
@@ -13,10 +13,30 @@
 # If they can't be converted return false
 # Other wise return the converted int or float 
 # Floats should only have one decimal point in them 
+num = input('enter an integer or a float: ')
+def convert(num):
+    isneg = False
+    if num[0] == '-':
+        isneg = True
+        num = num.replace('-','')
+    if '.' in num:
+        nums = num.split('.')
+        if len(nums) == 2 and nums[0].isdigit() and nums[1].isdigit():
+            if isneg:
+                return -1*float(num)
+            else:
+                return float(num)
+    elif num.isdigit():
+        if isneg:
+            return -1*int(num)
+        else:
+            return int(num)
+    else:
+        return False
 
+print(convert(num))
 
 print("*" * 75)
-
 
 # Point-slope y = mx + b
 # This is used in mathematics to determine what the value y would be for any given x
@@ -37,6 +57,31 @@ print("*" * 75)
 # Exit on the word exit
 # Remember all inputs are strings, but the function needs ints or floats
 # Call your function and print the resulting list
+
+def slope_intercept(m,b,xl,xu):
+    y_values = []
+    for x in range(xl,xu+1):
+        y = m*x + b
+        y_values.append(y)
+    return y_values
+
+
+while True:
+    m = input('enter slope "m": ')
+    m = convert(m)
+
+    b = input('enter intercept "b": ')
+    b = convert(b)
+
+    xl = input('enter lower bound "xl": ')
+    xl = convert(xl)
+
+    xu = input('enter upper bound "xu": ')
+    xu = convert(xu)
+
+    
+
+        
 
 print("*" * 75)
 
